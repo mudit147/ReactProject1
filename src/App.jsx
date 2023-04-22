@@ -13,26 +13,13 @@ function App() {
     setModalIsVisible(true);
   }
 
-  // let modalContent;
-
-  // if (modalIsVisible) {
-  //   modalContent = (
-  //     <Modal onClose={hideModalHandler}>
-  //       <NewPost
-  //         onBodyChange={bodyChangeHandler}
-  //         onNameChange={nameChangeHandler}
-  //       />
-  //     </Modal>
-  //   )
-  // }
-
   return (
     <>
-      <MainHeader onCreatePost={showModalHandler}/>
+      <MainHeader onCreatePost={showModalHandler} />
       <main>
-        <PostsList 
-        isPostingModal={modalIsVisible}
-        onStopPostingModal={hideModalHandler}
+        <PostsList
+          isPostingModal={modalIsVisible}
+          onStopPostingModal={hideModalHandler}
         />
       </main>
     </>
