@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classes from './NewPost.module.css';
 
-function NewPost( {onCancel} ) {
+function NewPost( {onCancel, onAddPost} ) {
     const [enteredBody, setEnteredBody] = useState('');
     const [enteredName, setEnteredName] = useState('');
 
@@ -18,9 +18,10 @@ function NewPost( {onCancel} ) {
         event.preventDefault();
         const postData = {
             body: enteredBody,
-            name: enteredName
+            author: enteredName
         };
-        console.log(postData);
+        onAddPost(postData);
+
         onCancel();
     }
 
@@ -31,8 +32,8 @@ function NewPost( {onCancel} ) {
                 <textarea id="body" required rows={3} onChange={bodyChangeHandler}/>
             </p>
             <p>
-                <label htmlFor="name">Your name</label>
-                <input type="text" id="name" required onChange={nameChangeHandler} />
+                <label htmlFor="author">Your name</label>
+                <input type="text" id="author" required onChange={nameChangeHandler} />
             </p>
             <p className={classes.actions}>
                 <button type="button" onClick={onCancel}>
